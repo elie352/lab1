@@ -10,16 +10,10 @@ module com.example.miniproject4 {
     requires javafx.fxml;
     requires javafx.graphics;
 
-    // Optional: Add if you use JavaFX web view
+    // Optional dependencies (uncomment if used)
     // requires javafx.web;
-
-    // Optional: Add if you use JavaFX media
     // requires javafx.media;
-
-    // Optional: Add for database connectivity
     // requires java.sql;
-
-    // Optional: Add for JSON processing
     // requires com.google.gson;
     // requires com.fasterxml.jackson.databind;
 
@@ -39,6 +33,6 @@ module com.example.miniproject4 {
     opens com.example.miniproject4.controllers to javafx.fxml;
 
     // Open models package to javafx.base for JavaFX property reflection
-    // This is required for PropertyValueFactory and data binding
+    // (needed for PropertyValueFactory and data binding)
     opens com.example.miniproject4.models to javafx.base;
 }

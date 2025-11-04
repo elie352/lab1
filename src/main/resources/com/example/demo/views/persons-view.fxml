@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox fillHeight="false" spacing="30.0" xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.demo.controllers.PersonsController">
+    <children>
+        <VBox prefHeight="507.0" prefWidth="288.0">
+            <children>
+                <!-- ===================== FORM HEADER ===================== -->
+                <GridPane prefHeight="298.0" prefWidth="288.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="5.0" prefWidth="110.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="184.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="113.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="154.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="85.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+
+                    <children>
+                        <Label alignment="CENTER" prefHeight="72.0" prefWidth="288.0"
+                               text="PC PARTS" textAlignment="CENTER" textFill="#f22828"
+                               GridPane.columnSpan="2">
+                            <font>
+                                <Font name="Tahoma Bold" size="36.0" />
+                            </font>
+                        </Label>
+
+                        <Label text="Part Name :" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="Arial" size="16.0" />
+                            </font>
+                        </Label>
+
+                        <Label text="Price :" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="Arial" size="16.0" />
+                            </font>
+                        </Label>
+
+                        <Label text="Quantity:" GridPane.rowIndex="4">
+                            <font>
+                                <Font name="Arial" size="16.0" />
+                            </font>
+                        </Label>
+
+                        <TextField fx:id="nameFld" prefHeight="25.0" prefWidth="203.0"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="ageFld" promptText="in US Dollars"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="addressFld" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                        <ImageView fitHeight="134.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true"
+                                   GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                            <image>
+                                <Image url="@../images/computer.jpeg" />
+                            </image>
+                        </ImageView>
+                    </children>
+
+                    <VBox.margin>
+                        <Insets bottom="25.0" />
+                    </VBox.margin>
+                </GridPane>
+
+                <!-- ===================== DATE & TYPE FIELDS ===================== -->
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+
+                    <children>
+                        <Label prefHeight="20.0" prefWidth="129.0" text="Store Date :">
+                            <font>
+                                <Font name="Arial" size="16.0" />
+                            </font>
+                        </Label>
+
+                        <DatePicker fx:id="datePicker" promptText="Choose Date"
+                                    GridPane.columnIndex="1" />
+
+                        <Label text="Term of Use :" GridPane.rowIndex="1">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+
+                        <ChoiceBox fx:id="typeChoiceBox" prefWidth="150.0"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+
+                <!-- ===================== ACTION BUTTONS ===================== -->
+                <HBox alignment="CENTER" prefHeight="37.0" prefWidth="288.0" spacing="30.0">
+                    <VBox.margin>
+                        <Insets bottom="25.0" />
+                    </VBox.margin>
+                    <children>
+                        <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deletePerson"
+                                prefHeight="30.0" prefWidth="90.0"
+                                style="-fx-background-color: #f22828;" text="Delete" textFill="WHITE">
+                            <font>
+                                <Font name="Arial Bold" size="12.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addPerson"
+                                prefHeight="30.0" prefWidth="90.0"
+                                style="-fx-background-color: #f22828;" text="Insert" textFill="WHITE">
+                            <font>
+                                <Font name="Arial Bold" size="12.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="updateBtn" mnemonicParsing="false" onAction="#updatePerson"
+                                prefHeight="30.0" prefWidth="90.0"
+                                style="-fx-background-color: #f22828;" text="Update" textFill="WHITE">
+                            <font>
+                                <Font name="Arial Bold" size="12.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+
+                <Text fx:id="errorMsg" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0"
+                      wrappingWidth="286.13671875">
+                    <font>
+                        <Font name="Arial Bold" size="12.0" />
+                    </font>
+                </Text>
+            </children>
+        </VBox>
+
+        <!-- ===================== TABLE VIEW ===================== -->
+        <TableView fx:id="personsTable" prefHeight="506.0">
+            <columns>
+                <TableColumn fx:id="nameCol" prefWidth="150.0" text="Part Name" />
+                <TableColumn fx:id="ageCol" prefWidth="151.0" text="Price" />
+                <TableColumn fx:id="addressCol" prefWidth="151.0" text="Quantity" />
+                <TableColumn fx:id="storeDateCol" prefWidth="150.0" text="Store Date" />
+                <TableColumn fx:id="termCol" prefWidth="151.0" text="Term of Use" />
+            </columns>
+        </TableView>
+    </children>
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</HBox>
