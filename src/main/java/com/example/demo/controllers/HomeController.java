@@ -22,70 +22,49 @@ public class HomeController {
     @FXML
     private Button phonesMngBtn;
 
-    // PC PARTS
+    // PC PARTS - Shows login first
     @FXML
     void openPersonsMng(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass()
-                    .getResource("/com/example/demo/views/persons-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-            Stage stage = new Stage();
-            stage.setTitle("PC PARTS");
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            showError("PC Parts Error", e.getMessage());
-            e.printStackTrace();
-        }
+        showLoginForModule("pcparts", "PC Parts");
     }
 
-    // CAR MANAGEMENT
+    // CAR MANAGEMENT - Shows login first
     @FXML
     void openCarsManagement(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass()
-                    .getResource("/com/example/demo/views/cars-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-            Stage stage = new Stage();
-            stage.setTitle("Car Management");
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            showError("Car Management Error", e.getMessage());
-            e.printStackTrace();
-        }
+        showLoginForModule("cars", "Car Management");
     }
 
-    // FRUIT & VEGETABLE MANAGEMENT
+    // FRUIT & VEGETABLE MANAGEMENT - Shows login first
     @FXML
     void openProductsManagement(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass()
-                    .getResource("/com/example/demo/views/products-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-            Stage stage = new Stage();
-            stage.setTitle("Fruit & Vegetable Management");
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            showError("Products Management Error", e.getMessage());
-            e.printStackTrace();
-        }
+        showLoginForModule("products", "Fruit & Vegetable");
     }
 
-    // PHONE MANAGEMENT
+    // PHONE MANAGEMENT - Shows login first
     @FXML
     void openPhonesManagement(ActionEvent event) {
+        showLoginForModule("phones", "Phone Management");
+    }
+
+    // Show login dialog for specific module
+    private void showLoginForModule(String moduleType, String moduleTitle) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass()
-                    .getResource("/com/example/demo/views/phones-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-            Stage stage = new Stage();
-            stage.setTitle("Phone Management");
-            stage.setScene(scene);
-            stage.show();
+                    .getResource("/com/example/demo/views/login-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 450, 500);
+
+            // Get the controller and set which module is being accessed
+            LoginController loginController = fxmlLoader.getController();
+            loginController.setRequiredModule(moduleType);
+
+            Stage loginStage = new Stage();
+            loginStage.setTitle("Login - " + moduleTitle);
+            loginStage.setScene(scene);
+            loginStage.setResizable(false);
+            loginStage.show();
+
         } catch (Exception e) {
-            showError("Phone Management Error", e.getMessage());
+            showError("Error", "Failed to open login page: " + e.getMessage());
             e.printStackTrace();
         }
     }
