@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox fillHeight="false" spacing="30.0"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.demo.controllers.PhonesController">
+
+    <children>
+        <!-- Left Side: Form Section -->
+        <VBox prefHeight="507.0" prefWidth="288.0" spacing="10.0">
+            <children>
+                <!-- Form Grid -->
+                <GridPane prefHeight="350.0" prefWidth="288.0" hgap="10.0" vgap="8.0">
+                    <columnConstraints>
+                        <ColumnConstraints prefWidth="110.0" halignment="RIGHT"/>
+                        <ColumnConstraints prefWidth="184.0" hgrow="ALWAYS"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints prefHeight="46.0" />
+                        <RowConstraints prefHeight="80.0" />
+                        <RowConstraints prefHeight="30.0" />
+                        <RowConstraints prefHeight="30.0" />
+                        <RowConstraints prefHeight="30.0" />
+                    </rowConstraints>
+
+                    <children>
+                        <!-- Title -->
+                        <Label text="Phone Management" alignment="CENTER" prefWidth="288.0"
+                               textFill="BLACK" GridPane.columnSpan="2" GridPane.rowIndex="0">
+                            <font>
+                                <Font name="Tahoma Bold" size="28.0" />
+                            </font>
+                        </Label>
+
+                        <!-- Phone Emoji -->
+                        <Label text="📱" GridPane.columnSpan="2" GridPane.rowIndex="1"
+                               GridPane.halignment="CENTER">
+                            <font>
+                                <Font size="60.0" />
+                            </font>
+                        </Label>
+
+                        <!-- Model Field -->
+                        <Label text="Model:" GridPane.rowIndex="2">
+                            <font><Font name="Arial" size="14.0" /></font>
+                        </Label>
+                        <TextField fx:id="modelFld" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                        <!-- Storage Field -->
+                        <Label text="Storage (GB):" GridPane.rowIndex="3">
+                            <font><Font name="Arial" size="14.0" /></font>
+                        </Label>
+                        <TextField fx:id="storageFld" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                        <!-- Price Field -->
+                        <Label text="Price ($):" GridPane.rowIndex="4">
+                            <font><Font name="Arial" size="14.0" /></font>
+                        </Label>
+                        <TextField fx:id="priceFld" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                    </children>
+
+                    <VBox.margin>
+                        <Insets bottom="15.0" />
+                    </VBox.margin>
+                </GridPane>
+
+                <!-- Action Buttons -->
+                <HBox alignment="CENTER" spacing="15.0">
+                    <children>
+                        <Button fx:id="addBtn" text="Add" onAction="#addPhone"
+                                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"
+                                prefHeight="35.0" prefWidth="85.0">
+                            <font><Font name="Arial Bold" size="12.0" /></font>
+                        </Button>
+
+                        <Button fx:id="updateBtn" text="Update" onAction="#updatePhone"
+                                style="-fx-background-color: #2196F3; --fx-text-fill: white;"
+                                prefHeight="35.0" prefWidth="85.0">
+                            <font><Font name="Arial Bold" size="12.0" /></font>
+                        </Button>
+
+                        <Button fx:id="deleteBtn" text="Delete" onAction="#deletePhone"
+                                style="-fx-background-color: #f44336; -fx-text-fill: white;"
+                                prefHeight="35.0" prefWidth="85.0">
+                            <font><Font name="Arial Bold" size="12.0" /></font>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </VBox.margin>
+                </HBox>
+
+                <!-- Error/Success Message Display -->
+                <Text fx:id="errorMsg" fill="RED" wrappingWidth="280.0" textAlignment="CENTER">
+                    <font><Font name="Arial Bold" size="11.0" /></font>
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </Text>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </VBox>
+
+        <!-- Right Side: Table Section -->
+        <VBox spacing="10.0">
+            <children>
+                <!-- Table Header -->
+                <Label text="Phone Inventory" textFill="#333333">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+
+                <!-- Phones Table -->
+                <TableView fx:id="phonesTable" prefHeight="506.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="modelCol" prefWidth="200.0" text="Model"/>
+                        <TableColumn fx:id="storageCol" prefWidth="150.0" text="Storage (GB)"/>
+                        <TableColumn fx:id="priceCol" prefWidth="150.0" text="Price ($)"/>
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+    </children>
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+</HBox>

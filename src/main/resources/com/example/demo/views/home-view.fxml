@@ -25,12 +25,34 @@
                 </Text>
             </children>
         </VBox>
-        <VBox alignment="CENTER" spacing="25.0">
+        <VBox alignment="CENTER" spacing="20.0">
             <HBox.margin>
                 <Insets left="25.0" right="25.0" />
             </HBox.margin>
             <children>
-                <Button fx:id="personsMngBtn" mnemonicParsing="false" onAction="#openPersonsMng" prefHeight="40.0" prefWidth="257.0" style="-fx-background-color: #f22828;" text="PC PARTS" textFill="#f5f3f3">
+                <!-- PC PARTS BUTTON -->
+                <Button fx:id="personsMngBtn" mnemonicParsing="false" onAction="#openPersonsMng" prefHeight="40.0" prefWidth="257.0" style="-fx-background-color: #f22828;" text="💻 PC PARTS" textFill="#f5f3f3">
+                    <font>
+                        <Font name="Arial Bold" size="14.0" />
+                    </font>
+                </Button>
+
+                <!-- CAR MANAGEMENT BUTTON -->
+                <Button fx:id="carsMngBtn" mnemonicParsing="false" onAction="#openCarsManagement" prefHeight="40.0" prefWidth="257.0" style="-fx-background-color: #f22828;" text="🚗 CAR MANAGEMENT" textFill="#f5f3f3">
+                    <font>
+                        <Font name="Arial Bold" size="14.0" />
+                    </font>
+                </Button>
+
+                <!-- FRUIT & VEGETABLE BUTTON -->
+                <Button fx:id="productsMngBtn" mnemonicParsing="false" onAction="#openProductsManagement" prefHeight="40.0" prefWidth="257.0" style="-fx-background-color: #f22828;" text="🍎 FRUIT &amp; VEGETABLE" textFill="#f5f3f3">
+                    <font>
+                        <Font name="Arial Bold" size="14.0" />
+                    </font>
+                </Button>
+
+                <!-- PHONE MANAGEMENT BUTTON -->
+                <Button fx:id="phonesMngBtn" mnemonicParsing="false" onAction="#openPhonesManagement" prefHeight="40.0" prefWidth="257.0" style="-fx-background-color: #f22828;" text="📱 PHONE MANAGEMENT" textFill="#f5f3f3">
                     <font>
                         <Font name="Arial Bold" size="14.0" />
                     </font>

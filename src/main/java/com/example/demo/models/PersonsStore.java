@@ -8,9 +8,9 @@ public class PersonsStore {
 
     public PersonsStore() {
         this.persons.addAll(
-                new Person("John", 23, "NY", "", ""),
-                new Person("Sara", 32, "LA", "", ""),
-                new Person("Tom", 22, "CA", "", "")
+                new Person("CPU", 100, "50", "2025-6-10", "new"),
+                new Person("RAM", 50, "25", "2015-8-12", "used"),
+                new Person("SSD", 40, "40", "2026-10-9", "new")
         );
     }
 
